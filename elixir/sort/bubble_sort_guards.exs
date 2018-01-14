@@ -20,7 +20,6 @@ ExUnit.start
 
 defmodule SortTest do
   use ExUnit.Case, async: true
-  require Sort
 
   test "does not fail when list has 1 element" do
     assert [1] = Sort.bubble [1]
