@@ -1,12 +1,12 @@
 defmodule Sort do
-  def bubble([lonely | []]), do: [lonely]
-  def bubble(values),        do: next_pass(values, reorder(values))
+  def bubble([lonely]), do: [lonely]
+  def bubble(values),   do: next_pass(values, reorder(values))
 
   defp next_pass(values, sorted) when values == sorted, do: sorted
   defp next_pass(_, sorted),                            do: bubble(sorted)
 
-  defp reorder([last | []]),           do: [last]
-  defp reorder([current, next | []]),  do: ordered current, next
+  defp reorder([last]),               do: [last]
+  defp reorder([current, next | []]), do: ordered current, next
   defp reorder([current, next | rest]) do
     [h | t] = ordered(current, next) ++ rest
     [h] ++ reorder(t)
