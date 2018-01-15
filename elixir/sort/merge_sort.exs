@@ -1,7 +1,8 @@
 defmodule Sort do
   def merge([lonely]), do: [lonely]
   def merge(values) do
-    {left, right} = Enum.split values, length(values) / 2 |> round
+    per_list = length(values) / 2 |> round
+    {left, right} = Enum.split values, per_list
     reorder merge(left), merge(right)
   end
 
