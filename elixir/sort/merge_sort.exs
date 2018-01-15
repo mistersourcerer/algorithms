@@ -1,18 +1,16 @@
 defmodule Sort do
   def merge([lonely]), do: [lonely]
   def merge(values) do
-    {first_half, second_half} = Enum.split values, length(values) / 2 |> round
-    reorder merge(first_half), merge(second_half)
+    {left, right} = Enum.split values, length(values) / 2 |> round
+    reorder merge(left), merge(right)
   end
 
   defp reorder(left, []),  do: left
   defp reorder([], right), do: right
-  defp reorder([first | left], [second | right]) when first > second do
-    [second] ++ reorder([first] ++ left, right)
-  end
-  defp reorder([first | left], [second | right]) do
-    [first] ++ reorder(left, [second] ++ right)
-  end
+  defp reorder([first | left], [second | right]) when first > second,
+    do: [second] ++ reorder([first] ++ left, right)
+  defp reorder([first | left], [second | right]),
+    do: [first] ++ reorder(left, [second] ++ right)
 end
 
 ExUnit.start
