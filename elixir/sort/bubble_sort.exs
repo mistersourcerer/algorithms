@@ -6,7 +6,7 @@ defmodule Sort do
   end
 
   defp restart(value, ordered) when value == ordered, do: value
-  defp restart(value, ordered), do: bubble(ordered)
+  defp restart(_, ordered), do: bubble(ordered)
 
   defp order(first, second) when first < second, do: [first, second]
   defp order(first, second), do: [second, first]
