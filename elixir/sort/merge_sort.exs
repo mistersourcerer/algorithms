@@ -34,4 +34,8 @@ defmodule SortTest do
   test "sorts an even number of elements" do
     assert [1, 2, 3, 4] = Sort.merge [2, 3, 1, 4]
   end
+
+  test "does not explode on ordered list :P" do
+    assert [1, 2, 3, 4] = Sort.merge [1, 2, 3, 4]
+  end
 end
